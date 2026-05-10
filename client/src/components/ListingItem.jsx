@@ -60,10 +60,10 @@ export default function ListingItem({ listing }) {
           {/* Price */}
           <div className='flex items-center justify-between mb-3'>
             <p className='text-2xl font-black text-gray-900'>
-              $
+              ₹
               {listing.offer
-                ? listing.discountedPrice.toLocaleString('en-US')
-                : listing.regularPrice.toLocaleString('en-US')}
+                ? listing.discountedPrice.toLocaleString('en-IN')
+                : listing.regularPrice.toLocaleString('en-IN')}
               {listing.type === 'rent' && (
                 <span className='text-sm font-normal text-gray-500'>/month</span>
               )}
@@ -71,10 +71,10 @@ export default function ListingItem({ listing }) {
             {listing.offer && listing.regularPrice > listing.discountedPrice && (
               <div className='text-right'>
                 <p className='text-sm text-gray-400 line-through'>
-                  ${listing.regularPrice.toLocaleString('en-US')}
+                  ₹{listing.regularPrice.toLocaleString('en-IN')}
                 </p>
                 <p className='text-xs text-green-600 font-semibold'>
-                  Save ${(listing.regularPrice - listing.discountedPrice).toLocaleString('en-US')}
+                  Save ₹{(listing.regularPrice - listing.discountedPrice).toLocaleString('en-IN')}
                 </p>
               </div>
             )}

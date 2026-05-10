@@ -54,7 +54,7 @@ function App() {
       
           <Route element={<PrivateRoute/>}>
         <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<Profile />} />
+        <Route path="/dashboard" element={<AdminPanel />} />
         <Route path="/my-tours" element={<MyTours />} />
         <Route path="/tours-dashboard" element={<ToursDashboard />} />
         <Route path="/create-listing" element={<Createlisting />} />

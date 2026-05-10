@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  FaHome, 
-  FaPhone, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
-  FaFacebookF, 
-  FaTwitter, 
-  FaInstagram, 
+import {
+  FaHome,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
   FaLinkedinIn,
   FaYoutube,
   FaWhatsapp,
@@ -18,6 +19,23 @@ import {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubscribed(true);
+      setEmail('');
+      setTimeout(() => setIsSubscribed(false), 5000);
+    }, 1500);
+  };
 
   const quickLinks = [
     { name: 'Buy Properties', href: '/search?type=sale' },
@@ -67,7 +85,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          
+
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
@@ -82,9 +100,9 @@ export default function Footer() {
                 <p className="text-xs text-gray-400 uppercase tracking-wider">Premium Real Estate</p>
               </div>
             </div>
-            
+
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner in real estate. We connect property seekers with their perfect homes, 
+              Your trusted partner in real estate. We connect property seekers with their perfect homes,
               offering exceptional service and expertise in prime locations across India.
             </p>
 
@@ -96,7 +114,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-sm text-gray-300">
                 <FaPhone className="text-blue-400 flex-shrink-0" />
-                <span>+91 9876543210</span>
+                <span>+91 8839595077</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-gray-300">
                 <FaEnvelope className="text-blue-400 flex-shrink-0" />
@@ -104,7 +122,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-sm text-gray-300">
                 <FaWhatsapp className="text-green-400 flex-shrink-0" />
-                <span>WhatsApp: +91 9876543210</span>
+                <span>WhatsApp: +91 8839595077</span>
               </div>
             </div>
 
@@ -129,10 +147,10 @@ export default function Footer() {
               <h4 className="text-sm font-semibold text-white mb-3">Follow Us</h4>
               <div className="flex space-x-3">
                 {[
+                  { Icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/aman-jain-248b612aa/', color: 'hover:bg-blue-700' },
                   { Icon: FaFacebookF, href: '#', color: 'hover:bg-blue-600' },
                   { Icon: FaTwitter, href: '#', color: 'hover:bg-sky-500' },
                   { Icon: FaInstagram, href: '#', color: 'hover:bg-pink-600' },
-                  { Icon: FaLinkedinIn, href: '#', color: 'hover:bg-blue-700' },
                   { Icon: FaYoutube, href: '#', color: 'hover:bg-red-600' }
                 ].map(({ Icon, href, color }, index) => (
                   <a
@@ -237,13 +255,24 @@ export default function Footer() {
             <div className="max-w-md mx-auto flex">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-l-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
-              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-r-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium">
-                Subscribe
+              <button
+                onClick={handleSubscribe}
+                disabled={isSubmitting || isSubscribed}
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-r-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium disabled:opacity-50"
+              >
+                {isSubmitting ? '...' : isSubscribed ? 'Done! ✅' : 'Subscribe'}
               </button>
             </div>
+            {isSubscribed && (
+              <p className="text-green-400 text-sm mt-3 animate-pulse font-medium">
+                Thank you for subscribing to Aman Estate!
+              </p>
+            )}
             <p className="text-xs text-gray-400 mt-2">We respect your privacy. Unsubscribe at any time.</p>
           </div>
         </div>
@@ -258,7 +287,7 @@ export default function Footer() {
                 © {currentYear} Elite Estates. All rights reserved. | Crafted with ❤️ for luxury real estate.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap justify-center md:justify-end items-center space-x-6">
               {legalLinks.map((link, index) => (
                 <Link
@@ -271,7 +300,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          
+
           <div className="mt-4 pt-4 border-t border-gray-800/50 text-center">
             <p className="text-xs text-gray-500">
               Elite Estates is a licensed real estate brokerage. Equal Housing Opportunity. All information deemed reliable but not guaranteed.

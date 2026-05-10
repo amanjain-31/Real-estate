@@ -238,7 +238,7 @@ export default function Home() {
                         <p className="text-gray-200 mb-4 line-clamp-2">{listing.description}</p>
                         <div className="flex items-center justify-between">
                           <span className="text-3xl font-bold">
-                            ${listing.discountPrice || listing.regularPrice}
+                            ₹{(listing.discountPrice || listing.regularPrice).toLocaleString('en-IN')}
                             {listing.type === 'rent' && '/month'}
                           </span>
                           <Link

@@ -115,7 +115,7 @@ function Header() {
             </Link>
 
             {/* Search Bar */}
-            <div className="hidden md:flex flex-1 max-w-xl mx-8">
+            <div className="hidden md:flex flex-1 min-w-[200px] lg:min-w-[300px] max-w-xl mx-4 lg:mx-8">
               <form onSubmit={handleSubmit} className="w-full relative group">
                 <div className="relative">
                   <FaSearch className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm group-focus-within:text-blue-500 transition-all duration-300" />
@@ -124,7 +124,7 @@ function Header() {
                     placeholder="Search luxury properties, prime locations..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-14 pr-16 py-4 bg-gray-50/80 border border-gray-200/60 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:bg-white/90 transition-all duration-300 text-sm font-medium backdrop-blur-sm"
+                    className="w-full pl-14 pr-16 py-4 bg-white/90 border border-gray-200 rounded-2xl text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white shadow-sm transition-all duration-300 text-sm font-semibold"
                   />
                   <button
                     type="submit"
@@ -141,7 +141,7 @@ function Header() {
               
               {/* Navigation Links */}
               {currentUser ? (
-                <nav className="hidden lg:flex items-center space-x-1">
+                <nav className="hidden xl:flex items-center space-x-1">
                   <Link to="/" className="nav-link">
                     Home
                   </Link>
@@ -368,7 +368,7 @@ function Header() {
                 placeholder="Search properties..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-2xl text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white shadow-sm transition-all duration-300 text-sm font-semibold"
               />
             </form>
           </div>

@@ -555,12 +555,12 @@ export default function Search() {
                   )}
                   {sidebardata.minPrice && (
                     <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                      Min: ${sidebardata.minPrice}
+                      Min: ₹{Number(sidebardata.minPrice).toLocaleString('en-IN')}
                     </span>
                   )}
                   {sidebardata.maxPrice && (
                     <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                      Max: ${sidebardata.maxPrice}
+                      Max: ₹{Number(sidebardata.maxPrice).toLocaleString('en-IN')}
                     </span>
                   )}
                   {sidebardata.parking && (

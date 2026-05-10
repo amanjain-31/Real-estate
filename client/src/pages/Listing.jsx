@@ -176,10 +176,10 @@ export default function Listing() {
                     </div>
                     <div className="flex flex-col items-start md:items-end space-y-2">
                       <div className="flex items-center text-3xl font-bold text-gray-800">
-                        <FaDollarSign className="text-green-600 mr-1" />
+                        <span className="text-green-600 mr-1">₹</span>
                         {listing.offer
-                          ? listing.discountedPrice.toLocaleString('en-US')
-                          : listing.regularPrice.toLocaleString('en-US')}
+                          ? listing.discountedPrice.toLocaleString('en-IN')
+                          : listing.regularPrice.toLocaleString('en-IN')}
                         {listing.type === 'rent' && (
                           <span className="text-lg font-normal text-gray-500 ml-1">/month</span>
                         )}
@@ -187,7 +187,7 @@ export default function Listing() {
                       {listing.offer && (
                         <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
                           <FaTag className="mr-1" />
-                          ${(+listing.regularPrice - +listing.discountedPrice).toLocaleString()} OFF
+                          ₹{(+listing.regularPrice - +listing.discountedPrice).toLocaleString('en-IN')} OFF
                         </div>
                       )}
                     </div>

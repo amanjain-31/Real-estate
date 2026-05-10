@@ -95,9 +95,13 @@ export const getListings = async (req, res, next) => {
       type,
     };
     
-    // Add name search if searchTerm is provided
+    // Add multi-field search if searchTerm is provided
     if (searchTerm) {
-      searchQuery.name = { $regex: searchTerm, $options: 'i' };
+      searchQuery.$or = [
+        { name: { $regex: searchTerm, $options: 'i' } },
+        { description: { $regex: searchTerm, $options: 'i' } },
+        { address: { $regex: searchTerm, $options: 'i' } }
+      ];
     }
     
     // Add location search if location is provided

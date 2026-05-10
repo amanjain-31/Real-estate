@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { 
-  FaPhone, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
   FaClock,
   FaWhatsapp,
   FaLinkedinIn,
@@ -38,7 +38,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitted(true);
@@ -63,24 +63,24 @@ function Contact() {
       icon: FaEnvelope,
       title: 'Email Us',
       description: 'Send us an email and we&apos;ll respond within 24 hours',
-      contact: 'mayankjain2624@gmail.com',
-      action: 'mailto:mayankjain2624@gmail.com',
+      contact: 'amanjain310105@gmail.com',
+      action: 'mailto:amanjain310105@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: FaPhone,
       title: 'Call Us',
       description: 'Speak directly with our support team',
-      contact: '+91 9876543210',
-      action: 'tel:+919876543210',
+      contact: '+91 8839595077',
+      action: 'tel:+918839595077',
       color: 'from-green-500 to-emerald-500'
     },
     {
       icon: FaWhatsapp,
       title: 'WhatsApp',
       description: 'Chat with us on WhatsApp for quick support',
-      contact: '+91 9876543210',
-      action: 'https://wa.me/919876543210',
+      contact: '+91 8839595077',
+      action: 'https://wa.me/918839595077',
       color: 'from-green-400 to-green-600'
     },
     {
@@ -160,7 +160,7 @@ function Contact() {
       {/* Main Contact Form Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-16">
-          
+
           {/* Contact Form */}
           <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/50 p-8">
             <div className="mb-8">
@@ -307,7 +307,7 @@ function Contact() {
 
           {/* Contact Info & Support Categories */}
           <div className="space-y-8">
-            
+
             {/* Office Hours */}
             <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/50 p-6">
               <div className="flex items-center space-x-3 mb-4">
@@ -354,10 +354,10 @@ function Contact() {
               <p className="text-gray-600 mb-4">Stay connected on social media for updates and tips</p>
               <div className="flex space-x-3">
                 {[
-                  { icon: FaLinkedinIn, color: 'bg-blue-600', href: '#' },
+                  { icon: FaLinkedinIn, color: 'bg-blue-600', href: 'https://www.linkedin.com/in/aman-jain-248b612aa/' },
                   { icon: FaTwitter, color: 'bg-blue-400', href: '#' },
                   { icon: FaInstagram, color: 'bg-pink-500', href: '#' },
-                  { icon: FaWhatsapp, color: 'bg-green-500', href: 'https://wa.me/919876543210' }
+                  { icon: FaWhatsapp, color: 'bg-green-500', href: 'https://wa.me/918839595077' }
                 ].map((social, index) => (
                   <a
                     key={index}

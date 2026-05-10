@@ -75,9 +75,9 @@ function Mylisting() {
               <h1 className="text-xl font-semibold text-gray-800 mb-3">{listing.name}</h1>
               <p className="text-gray-600 mb-4 text-sm line-clamp-3">{listing.description}</p>
               <div className="mb-4">
-                <p className="text-lg font-bold text-green-600">${listing.discountedPrice || listing.regularPrice}</p>
+                <p className="text-lg font-bold text-green-600">₹{(listing.discountedPrice || listing.regularPrice).toLocaleString('en-IN')}</p>
                 {listing.discountedPrice && (
-                  <p className="text-sm text-gray-500 line-through">${listing.regularPrice}</p>
+                  <p className="text-sm text-gray-500 line-through">₹{listing.regularPrice.toLocaleString('en-IN')}</p>
                 )}
               </div>
               <p className="text-gray-500 text-sm mb-4">Location: {listing.address}</p>
