@@ -26,9 +26,6 @@ dist-ssr
 .env
 client/.env
 
-# Config files with sensitive data
-firebase.js
-client/src/firebase.js
-
 # Logs and debug files
 problems.txt
+
