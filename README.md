@@ -263,7 +263,7 @@ npm run build
 # Deploy the dist folder
 ```
 
-### **Backend (Railway/Heroku)**
+### **Backend (Render/Railway)**
 ```bash
 # Set environment variables on your hosting platform
 # Deploy the root directory
